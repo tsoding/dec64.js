@@ -26,7 +26,7 @@ for (let x of bytes) {
     wasmByteArray += `${x},`;
 }
 
-const implemented = ['pack', 'unpackExp', 'unpackCoeff'];
+const implemented = ['pack', 'unpackExp', 'unpackCoeff', 'fromI64'];
 const noExports = ['toString', 'fromString'];
 
 let jsExports = '';
@@ -40,7 +40,7 @@ for (let key of Object.keys(wasm.exports)) {
     }
 }
 
-fs.writeFileSync("dec64.js", `
+fs.writeFileSync('dec64.js', `
 const mem = new WebAssembly.Memory({initial:${MEM_INITIAL}, maximum:${MEM_MAXIMUM}});
 const bytes = new Uint8Array([${wasmByteArray}]);
 const mod = new WebAssembly.Module(bytes);

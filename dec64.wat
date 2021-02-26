@@ -37,7 +37,9 @@
  (func $fromI64 (export "fromI64")
        (param $a i64)
        (result i64)
-       (i64.const 69))
+       (call $pack
+             (get_local $a)
+             (i64.const 0)))
  (func $add (export "add")
        (param $a i64)
        (param $b i64)
