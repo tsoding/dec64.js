@@ -26,12 +26,17 @@ for (let x of bytes) {
     wasmByteArray += `${x},`;
 }
 
+const implemented = ['pack', 'unpackExp', 'unpackCoeff'];
 const noExports = ['toString', 'fromString'];
 
 let jsExports = '';
 for (let key of Object.keys(wasm.exports)) {
     if (!noExports.includes(key)) {
-        jsExports += `exports.${key} = wasm.exports.${key};\n`;
+        if (implemented.includes(key)) {
+            jsExports += `exports.${key} = wasm.exports.${key};\n`;
+        } else {
+            jsExports += `exports.${key} = () => { throw '${key}: not implemented'; };\n`;
+        }
     }
 }
 
@@ -48,11 +53,11 @@ const wasm = new WebAssembly.Instance(mod, {
 ${jsExports}
 
 exports.toString = () => {
-    console.error('toString: not implemented');
+    throw 'toString: not implemented';
 };
 
 exports.fromString = () => {
-    console.error('fromString: not implemented');
+    throw 'fromString: not implemented';
 };
 
 exports.unpack = (x) => [

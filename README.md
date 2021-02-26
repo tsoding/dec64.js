@@ -10,5 +10,5 @@ Install [WABT](https://github.com/WebAssembly/wabt) first and make sure `wat2was
 $ node build.js
 $ node  --experimental-wasm-bigint
 > const dec64 = require('./dec64.js')
-> dec64.add(10n, 20n)
+> dec64.unpack(dec64.pack(420n, 69n))
 ```
