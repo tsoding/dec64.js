@@ -1,0 +1,25 @@
+{
+  "name": "dec64",
+  "version": "0.0.1",
+  "description": "DEC64: Decimal Floating Point Format implementation in WebAssembly for JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsoding/dec64.js.git"
+  },
+  "keywords": [
+    "dec64",
+    "floating-point",
+    "math",
+    "wasm"
+  ],
+  "author": "Alexey Kutepov <reximkut@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tsoding/dec64.js/issues"
+  },
+  "homepage": "https://github.com/tsoding/dec64.js#readme"
+}
