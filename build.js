@@ -92,7 +92,7 @@ exports.unpack = (x) => [
 }
 
 async function build() {
-    await wasm2js(await wat2wasm("dec64.wat"));
+    wasm2js(await wat2wasm("dec64.wat"));
 }
 
 build().catch(console.error);
